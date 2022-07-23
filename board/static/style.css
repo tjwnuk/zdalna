@@ -1,0 +1,12 @@
+.login-field {
+    height: 30px;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.header-container {
+    background-color: #E3F6CE;
+    border-radius: 10px;
+}
