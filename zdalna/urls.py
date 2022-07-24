@@ -17,9 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from board import views as boardViews
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', boardViews.home),
     path('about/', boardViews.about),
     path('offer/', boardViews.view_offer),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
