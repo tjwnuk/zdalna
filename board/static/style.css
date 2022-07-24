@@ -10,3 +10,17 @@
     background-color: #E3F6CE;
     border-radius: 10px;
 }
+
+.offer-container {
+    display: flex;
+    justify-content: baseline;
+}
+
+.offer-box {
+    width: max-content;
+    background-color: aliceblue;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}

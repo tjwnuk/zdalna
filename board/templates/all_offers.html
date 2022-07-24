@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3>List of all offers</h3>
+<br>
+
+{% for offer in offers %}
+<div class='offer-container'>
+    <div class='offer-box'>
+        <h5><a href="{% url 'offer' offer.id %}">{{ offer.title }}</a></h5>
+        <h6>{{ offer.company }}</h6>
+        <p> {{offer.lower_rate}} - {{ offer.upper_rate}} </p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

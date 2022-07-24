@@ -20,11 +20,13 @@ from board import views as boardViews
 from django.conf.urls.static import static
 from django.conf import settings
 
+from django.conf.urls import include
+import board.urls
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', boardViews.home),
-    path('about/', boardViews.about),
-    path('offer/', boardViews.view_offer),
+    path('', boardViews.home, name='home'),
+    path('',include(board.urls)),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

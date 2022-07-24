@@ -4,6 +4,10 @@
 
 {% block content %}
 
-block content
+<h3>{{ offer.title }}</h3>
+<p><b>{{ offer.lower_rate }} zł</b> - <b>{{ offer.upper_rate }} zł</b></p>
+<h4>{{ offer.company.name }}</h4>
+<p><b>{{ offer.short_description }}</b></p>
+</p>{{ offer.description}}</p>
 
 {% endblock %}
