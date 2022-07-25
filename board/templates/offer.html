@@ -3,11 +3,18 @@
 
 
 {% block content %}
-
-<h3>{{ offer.title }}</h3>
-<p><b>{{ offer.lower_rate }} zł</b> - <b>{{ offer.upper_rate }} zł</b></p>
-<h4>{{ offer.company.name }}</h4>
-<p><b>{{ offer.short_description }}</b></p>
-</p>{{ offer.description}}</p>
-
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <div class="card-body">
+                <h1 class="card-title">{{ offer.title }}</h1>
+                <br>
+                <p class="card-text"><b>{{ offer.lower_rate }} zł</b> - <b>{{ offer.upper_rate }} zł</b></p>
+                <p class="card-text">{{ offer.company.name }}</p>
+                <p><b>{{ offer.short_description }}</b></p>
+                </p>{{ offer.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
