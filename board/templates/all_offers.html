@@ -7,8 +7,8 @@
 <br>
 
 {% for offer in offers %}
-<div class='offer-container'>
-    <div class='offer-box'>
+<div class='card mb-3'>
+    <div class='card-body'>
         <h5><a href="{% url 'offer' offer.id %}">{{ offer.title }}</a></h5>
         <h6>{{ offer.company }}</h6>
         <p> {{offer.lower_rate}} - {{ offer.upper_rate}} </p>

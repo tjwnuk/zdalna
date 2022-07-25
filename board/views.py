@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.template import Context, Template
 
@@ -14,12 +14,8 @@ def home(request):
 def about(request):
     return HttpResponse('<h1>About site</h1> \n This is about site')
 
-def offer(request, id=None):
-
-    offer_id = id
-
-    offer = JobOffer.objects.get(id=offer_id)
-
+def offer(request, offer_id):
+    offer = get_object_or_404(JobOffer, pk=offer_id)
     context = {
         'title': offer.title,
         'offer': offer,
