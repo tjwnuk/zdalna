@@ -5,6 +5,8 @@ from django.template import Context, Template
 from . import helpers
 from .models import JobOffer
 
+from pprint import pprint
+
 # Create your views here.
 
 def home(request):
@@ -27,3 +29,10 @@ def all_offers(request):
     offers = JobOffer.objects.all()
 
     return render(request, 'all_offers.html', {'offers': offers})
+
+def add_offer(request):
+
+    if not request.user.is_authenticated:
+        return HttpResponse('You should login first in order to add job offer.')
+
+    return render(request, 'add_offer.html')

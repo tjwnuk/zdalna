@@ -25,8 +25,8 @@ import board.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', boardViews.home, name='home'),
     path('',include(board.urls)),
+    path('account/', include('accounts.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
