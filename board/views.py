@@ -1,11 +1,11 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
 from django.template import Context, Template
 
 from . import helpers
 from .models import JobOffer
 
-from pprint import pprint
+from .forms import JobOfferForm
 
 # Create your views here.
 
@@ -25,14 +25,23 @@ def offer(request, offer_id):
     return render(request, 'offer.html', context)
 
 def all_offers(request):
-
-    offers = JobOffer.objects.all()
-
+    offers = JobOffer.objects.all().order_by('-date') # newest offers first
     return render(request, 'all_offers.html', {'offers': offers})
 
 def add_offer(request):
-
     if not request.user.is_authenticated:
-        return HttpResponse('You should login first in order to add job offer.')
+            return HttpResponse('You should login first in order to add job offer.')
 
-    return render(request, 'add_offer.html')
+    if request.method == 'GET':
+        form = JobOfferForm()
+        return render(request, 'add_offer.html', { 'form': form })
+
+    else:
+        try:
+            form = JobOfferForm(request.POST)
+            if form.is_valid():
+                form.save()
+            return redirect('all_offers')
+
+        except ValueError:
+            return render(request, 'createreview.html', {'form':JobOfferForm(),'error':'bad data passed in'})
