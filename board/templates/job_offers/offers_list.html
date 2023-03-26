@@ -5,12 +5,10 @@ Lista ofert
 {% endblock %}
 
 {% block content %}
-
-<h2>{{offer.title}}</h2>
-<p>{{offer.author}}</p>
-<p>{{ offer.publish }}</p>
-<hr>
-<p>{{offer.body}}</p>
-
+<ul>
+    {% for offer in offers %}
+    <li>{{offer}}</li>
+    {% endfor %}
+</ul>
 
 {% endblock %}
