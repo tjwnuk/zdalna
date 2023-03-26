@@ -7,7 +7,7 @@ Lista ofert
 {% block content %}
 <ul>
     {% for offer in offers %}
-    <li>{{offer}}</li>
+    <li><a href="{% url 'board:offer_detail' offer.id%}">{{offer}}</a></li>
     {% endfor %}
 </ul>
 

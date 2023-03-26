@@ -11,7 +11,7 @@ def job_offers_list(request):
     offers = JobOffer.objects.all()
     
     return render(request,
-                  'job_offers/offers_list.html',
+                  'board/offers_list.html',
                   {'offers': offers })
 
 def offer_detail(request, id):
@@ -20,4 +20,4 @@ def offer_detail(request, id):
     """
 
     offer = get_object_or_404(JobOffer, id=id)
-    return render(request, 'job_offers/detail.html', {'offer': offer})
+    return render(request, 'board/detail.html', {'offer': offer})
