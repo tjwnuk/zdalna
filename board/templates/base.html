@@ -4,20 +4,27 @@
 <head>
 <title>{% block title %}{% endblock %}</title>
 <link href="{% static "css/blog.css" %}" rel="stylesheet">
+<link href="{% static "bootstrap.min.css" %}" rel="stylesheet">
 </head>
 <body>
-<div id="content">
-{% block content %}
-{% endblock %}
-</div>
 
+<div class="container">
+
+    {% include 'partial/navbar.html' %}
+
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>
 {% comment %}
 <div id="sidebar">
 <h2>sidebar</h2>
 
 <p>This is my blog.</p>
-{% endcomment %}
 
 </div>
+{% endcomment %}
 </body>
 </html>

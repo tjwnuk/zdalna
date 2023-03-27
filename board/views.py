@@ -4,6 +4,15 @@ from .models import JobOffer
 
 # Create your views here.
 
+def index(request):
+    # index page, front page, home page
+
+    # return HttpResponse('Elo, this is main page')
+
+    return render(request,
+                  'board/index.html',
+                  {})
+
 def job_offers_list(request):
     """
     List of all job offers

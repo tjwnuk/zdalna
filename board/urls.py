@@ -5,6 +5,7 @@ app_name = 'board'
 
 urlpatterns = [
     # post views
-    path('', views.job_offers_list, name='job_offers_list'),
-    path('<int:id>/', views.offer_detail, name='offer_detail'),
+    path('', views.index, name='index'),
+    path('offers/', views.job_offers_list, name='job_offers_list'),
+    path('offer/<int:id>/', views.offer_detail, name='offer_detail'),
 ]
