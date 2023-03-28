@@ -7,10 +7,15 @@ from .models import JobOffer
 def index(request):
     # index page, front page, home page
 
-    # return HttpResponse('Elo, this is main page')
-
     return render(request,
                   'board/index.html',
+                  {})
+
+def about(request):
+    # about page view
+
+    return render(request,
+                  'board/about.html',
                   {})
 
 def job_offers_list(request):
